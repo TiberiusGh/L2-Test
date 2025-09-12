@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "consent-tracker": "file:../L2/1DV610-L2",
+    "vite": "^6.3.6"
+  },
+  "name": "l2-test",
+  "version": "1.0.0",
+  "description": "Used for testing the consent-tracker",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TiberiusGh/L2-Test.git"
+  },
+  "author": "Tiberius Gherac",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TiberiusGh/L2-Test/issues"
+  },
+  "homepage": "https://github.com/TiberiusGh/L2-Test#readme"
+}
