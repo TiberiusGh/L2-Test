@@ -68,5 +68,5 @@ setTrueConsentBtn.addEventListener('click', () => {
 const getConsentsBtn = document.querySelector('#GetConsents')
 getConsentsBtn.addEventListener('click', () => {
   const stored = getConsents()
-  pre.textContent = `Current consents: ${JSON.stringify(stored)}`
+  console.log(`Current consents: ${JSON.stringify(stored)}`)
 })
