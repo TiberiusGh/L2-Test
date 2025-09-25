@@ -1,55 +1,60 @@
-import {
-  getConsents,
-  setConsents,
-  uppdateConsent,
-  acceptAll,
-  declineAll,
-  onConsentChange
-} from 'consent-tracker'
+import ConsentTracer from 'consent-tracker'
 
+const consentTracker = new ConsentTracer()
 const pre = document.querySelector('pre')
 
 function init() {
-  pre.textContent = `Current consents: ${JSON.stringify(getConsents())}`
+  pre.textContent = `Current consents: ${localStorage.getItem(
+    'consent-tracker'
+  )}`
 }
 
 init()
 
 // Listen for changes in consents and update the <pre> element
-
-onConsentChange((newConsents) => {
+consentTracker.onConsentChange((newConsents) => {
   pre.textContent = `Current consents: ${JSON.stringify(newConsents)}`
 })
 
 const essentialsOn = document.querySelector('#EssentialsOn')
-essentialsOn.addEventListener('click', () => uppdateConsent('essential', true))
+essentialsOn.addEventListener('click', () =>
+  consentTracker.uppdateConsent('essential', true)
+)
 
 const essentialsOff = document.querySelector('#EssentialsOff')
 essentialsOff.addEventListener('click', () =>
-  uppdateConsent('essential', false)
+  consentTracker.uppdateConsent('essential', false)
 )
 
 const marketingOn = document.querySelector('#MarketingOn')
-marketingOn.addEventListener('click', () => uppdateConsent('marketing', true))
+marketingOn.addEventListener('click', () =>
+  consentTracker.uppdateConsent('marketing', true)
+)
 
 const marketingOff = document.querySelector('#MarketingOff')
-marketingOff.addEventListener('click', () => uppdateConsent('marketing', false))
+marketingOff.addEventListener('click', () =>
+  consentTracker.uppdateConsent('marketing', false)
+)
 
 const analyticsOn = document.querySelector('#AnalyticsOn')
-analyticsOn.addEventListener('click', () => uppdateConsent('analytics', true))
+analyticsOn.addEventListener('click', () =>
+  consentTracker.uppdateConsent('analytics', true)
+)
 
 const analyticsOff = document.querySelector('#AnalyticsOff')
-analyticsOff.addEventListener('click', () => uppdateConsent('analytics', false))
+analyticsOff.addEventListener('click', () =>
+  consentTracker.uppdateConsent('analytics', false)
+)
 
 const acceptAllBtn = document.querySelector('#AcceptAll')
-acceptAllBtn.addEventListener('click', () => acceptAll())
+acceptAllBtn.addEventListener('click', () => consentTracker.acceptAll())
 
 const rejectAllBtn = document.querySelector('#RejectAll')
-rejectAllBtn.addEventListener('click', () => declineAll())
+rejectAllBtn.addEventListener('click', () => consentTracker.declineAll())
 
 const setFalseConsentBtn = document.querySelector('#SetFalseConsent')
 setFalseConsentBtn.addEventListener('click', () => {
-  setConsents({
+  consentTracker.setConsents({
     essential: false,
     analytics: true,
     marketing: true
@@ -58,7 +63,7 @@ setFalseConsentBtn.addEventListener('click', () => {
 
 const setTrueConsentBtn = document.querySelector('#SetTrueConsent')
 setTrueConsentBtn.addEventListener('click', () => {
-  setConsents({
+  consentTracker.setConsents({
     essential: true,
     analytics: true,
     marketing: false
@@ -67,6 +72,6 @@ setTrueConsentBtn.addEventListener('click', () => {
 
 const getConsentsBtn = document.querySelector('#GetConsents')
 getConsentsBtn.addEventListener('click', () => {
-  const stored = getConsents()
+  const stored = consentTracker.getConsents()
   console.log(`Current consents: ${JSON.stringify(stored)}`)
 })
