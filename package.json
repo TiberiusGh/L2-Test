@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "consent-tracker": "^1.0.1",
+    "consent-tracker": "^3.0.3",
     "vite": "^6.3.6"
   },
   "name": "l2-test",

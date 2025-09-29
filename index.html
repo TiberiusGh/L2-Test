@@ -9,15 +9,39 @@
   <body>
     <button id="EssentialsOn">Essentials on</button>
     <button id="EssentialsOff">Essentials off</button>
-    <button id="MarketingOn">Marketing on</button>
-    <button id="MarketingOff">Marketing off</button>
     <button id="AnalyticsOn">Analytics on</button>
     <button id="AnalyticsOff">Analytics off</button>
+    <button id="MarketingOn">Marketing on</button>
+    <button id="MarketingOff">Marketing off</button>
     <button id="GetConsents">Get Consents in console</button>
     <button id="AcceptAll">Accept All</button>
     <button id="RejectAll">Reject All</button>
     <button id="SetFalseConsent">Set custom consents 1</button>
     <button id="SetTrueConsent">Set custom consents 2</button>
     <pre></pre>
+
+    <br />
+    <br />
+    <br />
+    <label for="webhookURL">Webhook URL</label>
+    <input
+      type="text"
+      name="webhookURL"
+      id="inputWebhookURL"
+      placeholder="Enter webhook URL here"
+    />
+    <button id="SetWebhookBtn">Set Webhook</button>
+    <br />
+    <br />
+    <button id="SetDeveloperModeBtn">Development Mode: ON</button>
+    <br />
+    <br />
+    <br />
+
+    <p>
+      I recommend using a tool like
+      <a href="https://webhook.site/" target="_blank">Webhook.site</a> to test
+      webhooks (but remember to enable CORS in headers on Webhook.site).
+    </p>
   </body>
 </html>
