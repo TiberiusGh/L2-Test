@@ -11,23 +11,27 @@ function init() {
 
 init()
 
-const setDeveloperModeBtn = document.querySelector('#SetDeveloperModeBtn')
-let isDevelopmentMode = true
-consentTracker.setDeveloperMode(isDevelopmentMode)
-
-setDeveloperModeBtn.addEventListener('click', () => {
-  isDevelopmentMode = !isDevelopmentMode
-  consentTracker.setDeveloperMode(isDevelopmentMode)
-  setDeveloperModeBtn.textContent = isDevelopmentMode
-    ? 'Development Mode: ON'
-    : 'Development Mode: OFF'
-})
-
 const inputWebhookURL = document.querySelector('#inputWebhookURL')
 const setWebhookBtn = document.querySelector('#SetWebhookBtn')
 setWebhookBtn.addEventListener('click', () => {
   consentTracker.setWebhook(inputWebhookURL.value)
+  displayDevelopmentBtn()
 })
+
+function displayDevelopmentBtn() {
+  const setDeveloperModeBtn = document.querySelector('#SetDeveloperModeBtn')
+  setDeveloperModeBtn.style.display = 'inline-block'
+  let isDevelopmentMode = true
+  consentTracker.setDeveloperMode(isDevelopmentMode)
+
+  setDeveloperModeBtn.addEventListener('click', () => {
+    isDevelopmentMode = !isDevelopmentMode
+    consentTracker.setDeveloperMode(isDevelopmentMode)
+    setDeveloperModeBtn.textContent = isDevelopmentMode
+      ? 'Development Mode: ON'
+      : 'Development Mode: OFF'
+  })
+}
 
 // Listen for changes in consents and update the <pre> element
 consentTracker.onConsentChange((newConsents) => {
